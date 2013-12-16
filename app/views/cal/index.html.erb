@@ -1,0 +1,21 @@
+<div data-role="page">
+
+  <div data-role="header">
+    <h1>東京消防庁 勤務表</h1>
+  </div>
+
+  <div data-role="content">
+    <h2>これは何？</h2>
+    <p>東京消防庁職員用の、部ごとの勤務表をiPhoneのカレンダーに追加します。</p>
+    <hr />
+    <h2>使い方</h2>
+    <p>下の一覧から該当する部を選んでください。</p>
+    <ul data-role="listview" data-inset="true">
+      <% (1..3).each { |i| %>
+        <li>
+        <%= link_to(i.to_s + "部", {:controller => 'cal', :action=> 'cal', :format=> :ics, :id => i, :protocol => 'webcal://', :only_path => false}, {:rel => 'external'}) %>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</div>
